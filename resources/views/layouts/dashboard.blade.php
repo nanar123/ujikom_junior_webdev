@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('.') }}/assets/img/apple-icon.png">
-    <link rel="icon" type="image/png" href="{{ asset('.') }}/assets/img/favicon.png">
+    <link rel="icon" type="image/png" href="{{ asset('.') }}/assets/img/nty.png">
     <title>
         Ujikom - Nanar Tyrta Prayuga
     </title>
@@ -27,7 +27,7 @@
 <body class="g-sidenav-show   bg-gray-100">
     <div class="min-height-300 bg-primary position-absolute w-100"></div>
 
-
+{{-- style="background-image: url('{{ asset('.') }}/assets/img/robot.png');"> --}}
 
     @include('layouts.partials.sidebar')
 
@@ -54,7 +54,7 @@
     </main>
 
 
-    @include('layouts.partials.mode')
+    {{-- @include('layouts.partials.mode') --}}
 
 
     <!--   Core JS Files   -->
