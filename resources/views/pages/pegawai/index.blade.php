@@ -22,7 +22,8 @@
                                         {{-- <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-10">
                                             Foto
                                         </th> --}}
-                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-10 text-start">
+                                        <th
+                                            class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-10 text-start">
                                             No</th>
                                         <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-10 ">
                                             Nama</th>
@@ -214,6 +215,7 @@
 
 
     <script>
+        new DataTable('#table-pegawai');
         let userId = null;
 
         $('#addModal').on('show.bs.modal', function(e) {
@@ -419,10 +421,5 @@
                     toastr.error('Gagal mengambil data user', 'Error');
                 });
         }
-
-
-
-
-        new DataTable('#table-pegawai');
     </script>
 @endpush

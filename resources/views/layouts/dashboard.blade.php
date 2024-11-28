@@ -2,30 +2,50 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('.') }}/assets/img/apple-icon.png">
-    <link rel="icon" type="image/png" href="{{ asset('.') }}/assets/img/nty.png">
-    <title>
-        Ujikom - Nanar Tyrta Prayuga
-    </title>
-    <!--     Fonts and icons     -->
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
-    <!-- Nucleo Icons -->
-    <link href="{{ asset('.') }}/assets/css/nucleo-icons.css" rel="stylesheet" />
-    <link href="{{ asset('.') }}/assets/css/nucleo-svg.css" rel="stylesheet" />
-    <!-- Font Awesome Icons -->
-    <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
-    <link href="{{ asset('.') }}/assets/css/nucleo-svg.css" rel="stylesheet" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Admin Dashboard</title>
+    <meta
+      content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
+      name="viewport"
+    />
+    <link
+      rel="icon"
+      href="assets2/img/kaiadmin/favicon.ico"
+      type="image/x-icon"
+    />
+
+    <!-- Fonts and icons -->
+    <script src="assets2/js/plugin/webfont/webfont.min.js"></script>
+    <script>
+      WebFont.load({
+        google: { families: ["Public Sans:300,400,500,600,700"] },
+        custom: {
+          families: [
+            "Font Awesome 5 Solid",
+            "Font Awesome 5 Regular",
+            "Font Awesome 5 Brands",
+            "simple-line-icons",
+          ],
+          urls: ["assets2/css/fonts.min.css"],
+        },
+        active: function () {
+          sessionStorage.fonts = true;
+        },
+      });
+    </script>
+
     <!-- CSS Files -->
-    <link id="pagestyle" href="{{ asset('.') }}/assets/css/argon-dashboard.css?v=2.0.4" rel="stylesheet" />
+    <link rel="stylesheet" href="assets2/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="assets2/css/plugins.min.css" />
+    <link rel="stylesheet" href="assets2/css/kaiadmin.min.css" />
 
-    @stack('css')
-
+    <!-- CSS Just for demo purpose, don't include it in your project -->
+    <link rel="stylesheet" href="assets2/css/demo.css" />
 </head>
 
-<body class="g-sidenav-show   bg-gray-100">
-    <div class="min-height-300 bg-primary position-absolute w-100"></div>
+
+
+
 
 {{-- style="background-image: url('{{ asset('.') }}/assets/img/robot.png');"> --}}
 
@@ -37,7 +57,7 @@
 
         <!-- Navbar -->
 
-        @include('layouts.partials.head')
+        {{-- @include('layouts.partials.head') --}}
 
         <!-- End Navbar -->
 
@@ -51,114 +71,77 @@
                 {{-- @include('layouts.partials.footer') --}}
 
             </div>
+        </div>
     </main>
 
 
     {{-- @include('layouts.partials.mode') --}}
 
 
-    <!--   Core JS Files   -->
-    <script src="{{ asset('.') }}/assets/js/core/popper.min.js"></script>
-    <script src="{{ asset('.') }}/assets/js/core/bootstrap.min.js"></script>
-    <script src="{{ asset('.') }}/assets/js/plugins/perfect-scrollbar.min.js"></script>
-    <script src="{{ asset('.') }}/assets/js/plugins/smooth-scrollbar.min.js"></script>
-    <script src="{{ asset('.') }}/assets/js/plugins/chartjs.min.js"></script>
-    <script>
-        var ctx1 = document.getElementById("chart-line").getContext("2d");
+   <!--   Core JS Files   -->
+   <script src="assets2/js/core/jquery-3.7.1.min.js"></script>
+   <script src="assets2/js/core/popper.min.js"></script>
+   <script src="assets2/js/core/bootstrap.min.js"></script>
 
-        var gradientStroke1 = ctx1.createLinearGradient(0, 230, 0, 50);
+   <!-- jQuery Scrollbar -->
+   <script src="assets2/js/plugin/jquery-scrollbar/jquery.scrollbar.min.js"></script>
 
-        gradientStroke1.addColorStop(1, 'rgba(94, 114, 228, 0.2)');
-        gradientStroke1.addColorStop(0.2, 'rgba(94, 114, 228, 0.0)');
-        gradientStroke1.addColorStop(0, 'rgba(94, 114, 228, 0)');
-        new Chart(ctx1, {
-            type: "line",
-            data: {
-                labels: ["Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
-                datasets: [{
-                    label: "Mobile apps",
-                    tension: 0.4,
-                    borderWidth: 0,
-                    pointRadius: 0,
-                    borderColor: "#5e72e4",
-                    backgroundColor: gradientStroke1,
-                    borderWidth: 3,
-                    fill: true,
-                    data: [50, 40, 300, 220, 500, 250, 400, 230, 500],
-                    maxBarThickness: 6
+   <!-- Chart JS -->
+   <script src="assets2/js/plugin/chart.js/chart.min.js"></script>
 
-                }],
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: {
-                    legend: {
-                        display: false,
-                    }
-                },
-                interaction: {
-                    intersect: false,
-                    mode: 'index',
-                },
-                scales: {
-                    y: {
-                        grid: {
-                            drawBorder: false,
-                            display: true,
-                            drawOnChartArea: true,
-                            drawTicks: false,
-                            borderDash: [5, 5]
-                        },
-                        ticks: {
-                            display: true,
-                            padding: 10,
-                            color: '#fbfbfb',
-                            font: {
-                                size: 11,
-                                family: "Open Sans",
-                                style: 'normal',
-                                lineHeight: 2
-                            },
-                        }
-                    },
-                    x: {
-                        grid: {
-                            drawBorder: false,
-                            display: false,
-                            drawOnChartArea: false,
-                            drawTicks: false,
-                            borderDash: [5, 5]
-                        },
-                        ticks: {
-                            display: true,
-                            color: '#ccc',
-                            padding: 20,
-                            font: {
-                                size: 11,
-                                family: "Open Sans",
-                                style: 'normal',
-                                lineHeight: 2
-                            },
-                        }
-                    },
-                },
-            },
-        });
-    </script>
-    <script>
-        var win = navigator.platform.indexOf('Win') > -1;
-        if (win && document.querySelector('#sidenav-scrollbar')) {
-            var options = {
-                damping: '0.5'
-            }
-            Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
-        }
-    </script>
-    <!-- Github buttons -->
-    <script async defer src="https://buttons.github.io/buttons.js"></script>
-    <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
-    <script src="{{ asset('.') }}/assets/js/argon-dashboard.min.js?v=2.0.4"></script>
+   <!-- jQuery Sparkline -->
+   <script src="assets2/js/plugin/jquery.sparkline/jquery.sparkline.min.js"></script>
+
+   <!-- Chart Circle -->
+   <script src="assets2/js/plugin/chart-circle/circles.min.js"></script>
+
+   <!-- Datatables -->
+   <script src="assets2/js/plugin/datatables/datatables.min.js"></script>
+
+   <!-- Bootstrap Notify -->
+   <script src="assets2/js/plugin/bootstrap-notify/bootstrap-notify.min.js"></script>
+
+   <!-- jQuery Vector Maps -->
+   <script src="assets2/js/plugin/jsvectormap/jsvectormap.min.js"></script>
+   <script src="assets2/js/plugin/jsvectormap/world.js"></script>
+
+   <!-- Sweet Alert -->
+   <script src="assets2/js/plugin/sweetalert/sweetalert.min.js"></script>
+
+   <!-- Kaiadmin JS -->
+   <script src="assets2/js/kaiadmin.min.js"></script>
+
+   <!-- Kaiadmin DEMO methods, don't include it in your project! -->
+   <script src="assets2/js/setting-demo.js"></script>
+   <script src="assets2/js/demo.js"></script>
+   <script>
+     $("#lineChart").sparkline([102, 109, 120, 99, 110, 105, 115], {
+       type: "line",
+       height: "70",
+       width: "100%",
+       lineWidth: "2",
+       lineColor: "#177dff",
+       fillColor: "rgba(23, 125, 255, 0.14)",
+     });
+
+     $("#lineChart2").sparkline([99, 125, 122, 105, 110, 124, 115], {
+       type: "line",
+       height: "70",
+       width: "100%",
+       lineWidth: "2",
+       lineColor: "#f3545d",
+       fillColor: "rgba(243, 84, 93, .14)",
+     });
+
+     $("#lineChart3").sparkline([105, 103, 123, 100, 95, 105, 115], {
+       type: "line",
+       height: "70",
+       width: "100%",
+       lineWidth: "2",
+       lineColor: "#ffa534",
+       fillColor: "rgba(255, 165, 52, .14)",
+     });
+   </script>
 
     @stack('js')
 
